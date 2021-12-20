@@ -1,0 +1,81 @@
+@import './normalize';
+
+body {
+  font-family: 'Oswald';
+  color: #000;
+  padding: 2rem 3rem;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+}
+
+p {
+  font-family: 'Lato';
+  line-height: 1.4rem;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+h1 {
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  grid-column: 1/-1;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-family: 'Lato';
+
+  .categories &,
+  .tags & {
+    text-transform: uppercase;
+    font-family: 'Oswald';
+    font-size: .9rem;
+    font-weight: 400;
+  }
+}
+
+h2 a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+.links-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+
+  li {
+    padding-left: 1rem;
+    position: relative;
+    display: block;
+    padding: .2rem 1rem;
+
+    a {
+      font-family: 'Lato';
+      color: #000;
+    }
+
+    &::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      font-size: 2rem;
+      line-height: 1.3rem;
+    }
+  }
+}
+
+.meta-key {
+  text-transform: uppercase;
+}
+
+a[title='Uncategorized'] {
+  display: none;
+}
