@@ -7,47 +7,48 @@ while(have_posts()) {
   <h2><?php the_title(); ?></h2>
   <?php the_content(); ?>
   <div class="post-meta">
-    <span class="post-meta__categories">
-      <span class="post-meta__key">categories:</span>
-      <span class="post-meta__value">
-      <?php
-
+<?php
 $taxonomy = 'category';
- 
+
 // Get the term IDs assigned to post.
-$post_terms = wp_get_object_terms( $post->ID, $taxonomy, array( 'fields' => 'ids' ) );
- 
+$post_terms = wp_get_object_terms($post->ID, $taxonomy, array('fields' => 'ids'));
+
 // Separator between links.
 $separator = ', ';
- 
-if ( ! empty( $post_terms ) && ! is_wp_error( $post_terms ) ) {
- 
-    $term_ids = implode( ',' , $post_terms );
-    // TODO: $post_terms is an array 
-    // remove 1 (id for uncat) from array
-    
-    // foreach ($post_terms as &$id) {
-      
-    // }
- 
-    $terms = wp_list_categories( array(
-        'title_li' => '',
-        'style'    => 'none',
-        'echo'     => false,
-        'taxonomy' => $taxonomy,
-        'include'  => $term_ids,
-        'exclude'  => [1]
-    ) );
- 
-    $terms = rtrim( trim( str_replace( '<br />',  $separator, $terms ) ), $separator );
- 
-    // Display post categories.
+$categoryIndex = array_search('1', $post_terms);
+
+if ($categoryIndex !== '') {
+  if ($categoryIndex === 0 || $categoryIndex > 0) {
+    if (get_cat_name($post_terms[$categoryIndex]) === 'Uncategorized') {
+      unset($post_terms[$categoryIndex]);
+    }
+  }
+}
+
+if (!empty($post_terms ) && !is_wp_error($post_terms)) {
+  $terms = wp_list_categories(array(
+    'title_li' => '',
+    'style'    => 'none',
+    'echo'     => false,
+    'taxonomy' => $taxonomy,
+    'include'  => $post_terms,
+    'exclude'  => ['1']
+  ));
+
+  $terms = rtrim(trim(str_replace('<br />', $separator, $terms)), $separator);
+?>
+<span class="post-meta__categories">
+  <span class="post-meta__key">categories:</span>
+  <span class="post-meta__value">
+  <?php // Display post categories.
     echo  $terms;
+  ?>
+  </span>
+</span>
+<?php
 }
 ?>
-   
-      </span>
-    </span>
+
 	  <span class="tags">
       <?php the_tags( 
         '<span class="post-meta__key">tags:</span><span class="post-meta__value">', 

@@ -20,6 +20,10 @@ h1, h2, h3, h4 {
   margin: 0;
 }
 
+h2, h3, h4 {
+  font-family: 'Lato';
+}
+
 h1 {
   font-weight: 500;
   text-transform: uppercase;
@@ -29,8 +33,7 @@ h1 {
 
 h2 {
   margin-bottom: 1rem;
-  font-family: 'Lato';
-
+  
   .categories &,
   .tags & {
     text-transform: uppercase;
@@ -72,10 +75,7 @@ h2 a {
   }
 }
 
-.meta-key {
-  text-transform: uppercase;
-}
-
-a[title='Uncategorized'] {
-  display: none;
+.categories,
+.tags {
+  margin-top: .5rem;
 }
