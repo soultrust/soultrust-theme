@@ -1,12 +1,25 @@
 <?php
 
+// Add Theme Support
+add_theme_support( 'title-tag' );
+add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-formats', ['aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'] );
+add_theme_support( 'html5' );
+add_theme_support( 'automatic-feed-links' );
+add_theme_support( 'custom-background' );
+add_theme_support( 'custom-header' );
+add_theme_support( 'custom-logo' );
+add_theme_support( 'customize-selective-refresh-widgets' );
+add_theme_support( 'starter-content' );
+
+
 function soultrust_files() {
   wp_enqueue_script('main-js', get_theme_file_uri('/build/index.js'));
   wp_enqueue_style('google-font1', '//fonts.googleapis.com/css2?family=Oswald:wght@100;300;400;700&display=swap');
   wp_enqueue_style('google-font2', '//fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
   wp_enqueue_style('font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
-  wp_enqueue_style('k6_main_styles', get_theme_file_uri('/style.css'));
-  wp_enqueue_style('k6_extra_styles', get_theme_file_uri('/build/style-index.css'));
+  wp_enqueue_style('main-styles', get_stylesheet_directory_uri() . '/style.css');
+  wp_enqueue_style('extra-styles', get_theme_file_uri('/build/style-index.css'));
   wp_enqueue_style('dashicons');
 
   // To change root url on production / local

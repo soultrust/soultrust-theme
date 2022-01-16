@@ -6,6 +6,7 @@ body {
   padding: 2rem 3rem;
 }
 
+.archive,
 .home {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
@@ -29,10 +30,16 @@ h1 {
   text-transform: uppercase;
   margin-bottom: 2rem;
   grid-column: 1/-1;
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
 }
 
 h2 {
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
+  grid-column: 1/-1;
   
   .categories &,
   .tags & {
@@ -78,4 +85,21 @@ h2 a {
 .categories,
 .tags {
   margin-top: .5rem;
+}
+
+.post-meta {
+  font-family: 'Lato';
+
+  &__group {
+    display: inline-flex;
+  }
+
+  &__key {
+    font-weight: 700;
+    margin-right: .3rem;
+  }
+
+  &__categories {
+    margin-right: .6rem;
+  }
 }

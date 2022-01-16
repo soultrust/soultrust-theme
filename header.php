@@ -8,4 +8,12 @@
 </head>
 <body <?php body_class(); ?>>
 
-<h1><?php echo get_bloginfo('name'); ?></h1>
+<?php if (is_front_page() && is_home()) { ?>
+  <h1><?php echo get_bloginfo('name'); ?></h1>
+<?php } else { ?>
+<h1>
+  <a href="<?php echo esc_url(home_url('/')); ?>">
+    <?php echo get_bloginfo('name'); ?>
+  </a>
+</h1>
+<?php } ?>

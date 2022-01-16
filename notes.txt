@@ -1,0 +1,7 @@
+npm run build
+just builds once
+
+npm run start
+builds and watches
+control c to stop
+

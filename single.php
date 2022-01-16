@@ -37,7 +37,7 @@ if (!empty($post_terms ) && !is_wp_error($post_terms)) {
 
   $terms = rtrim(trim(str_replace('<br />', $separator, $terms)), $separator);
 ?>
-<span class="post-meta__categories">
+<span class="post-meta__categories post-meta__group">
   <span class="post-meta__key">categories:</span>
   <span class="post-meta__value">
   <?php // Display post categories.
