@@ -7,6 +7,7 @@
 html {
   height: 100%;
   font-size: 62.5%;
+  margin-top: 0 !important;
 }
 
 body {
@@ -46,12 +47,6 @@ p {
   font-family: 'Lato';
   line-height: 2.4rem;
   margin-bottom: 1.2rem;
-
-  code {
-    background-color: #dfdfdf;
-    border-radius: .4rem;
-    padding: .3rem .5rem;
-  }
 }
 
 h1, h2, h3, h4 {
@@ -104,6 +99,7 @@ ul {
   list-style: none;
   padding-left: 0;
   padding-right: 1rem;
+  margin-bottom: 1.2rem;
 
   li {
     position: relative;
@@ -172,10 +168,16 @@ iframe {
   }
 }
 
+code {
+  background-color: #dfdfdf;
+  border-radius: .4rem;
+  padding: .3rem .5rem;
+}
+
 .code {
   background-color: #dfdfdf;
-  border-radius: 12px;
-  padding: 1.6rem;
+  padding: 2rem;
+  border-radius: 9px;
   margin-bottom: 2rem;
 }
 
