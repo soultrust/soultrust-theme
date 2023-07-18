@@ -83,12 +83,92 @@ function gp_register_taxonomy_for_object_type() {
 };
 add_action( 'init', 'gp_register_taxonomy_for_object_type' );
 
+// Color Customizer
+function color_customize_register( $wp_customize ) {
+  $wp_customize->add_setting('base_bg_color', array(
+    'default' => '#ffffff',
+    'transport' => 'refresh',
+  ));
+  $wp_customize->add_setting('border_text_color', array(
+    'default' => '#000000',
+    'transport' => 'refresh',
+  ));
+  $wp_customize->add_setting('header_overlay_color', array(
+    'default' => '#ffffff',
+    'transport' => 'refresh',
+  ));
+  $wp_customize->add_setting('header_overlay_opacity', array(
+    'default' => 0,
+    'transport' => 'refresh',
+  ));
+  $wp_customize->add_setting('link_color', array(
+    'default' => '#000000',
+    'transport' => 'refresh',
+  ));
+  $wp_customize->add_section('soultrust_colors', array(
+    'title' => __('Colors', 'Soultrust'),
+    'priority' => 30,
+  ));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'base_bg_color_control', array(
+    'label' => __('Base Background Color', 'Soultrust'),
+    'section' => 'soultrust_colors',
+    'settings' => 'base_bg_color',
+  )));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'border_text_color_control', array(
+    'label' => __('Border & Base Text Color', 'Soultrust'),
+    'section' => 'soultrust_colors',
+    'settings' => 'border_text_color',
+  )));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_overlay_color_control', array(
+    'label' => __('Header Overlay Color', 'Soultrust'),
+    'section' => 'soultrust_colors',
+    'settings' => 'header_overlay_color',
+  )));
+  $wp_customize->add_control( 'header_overlay_opacity', array(
+    'type' => 'range',
+    'section' => 'soultrust_colors',
+    'label' => __( 'Header Overlay Opacity' ),
+    // 'description' => __( 'This is the range control description.' ),
+    'input_attrs' => array(
+      'min' => 0,
+      'max' => 1,
+      'step' => .1,
+    ),
+  ));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color_control', array(
+    'label' => __('Link Color', 'Soultrust'),
+    'section' => 'soultrust_colors',
+    'settings' => 'link_color',
+  )));
+  $wp_customize->remove_section( 'colors');
+}
+add_action('customize_register', 'color_customize_register');
 
-
-
-
-
-
+// Output Customize CSS
+function soultrust_customize_color_css() { ?>
+  <style type="text/css">
+    body {
+      background-color: <?php echo get_theme_mod('base_bg_color') ?>;
+      color: <?php echo get_theme_mod('border_text_color') ?>;
+      box-shadow: inset 0 0 0 9px <?php echo get_theme_mod('border_text_color') ?>;
+    }
+    body::before {
+      border-color: <?php echo get_theme_mod('border_text_color') ?>;
+    }
+    body::after {
+      background-color: <?php echo get_theme_mod('header_overlay_color') ?>;
+      opacity: <?php echo get_theme_mod('header_overlay_opacity') ?>;
+    }
+    h1 a {
+      color: <?php echo get_theme_mod('border_text_color') ?>;
+    }
+    a:link,
+    ul li::before {
+      color: <?php echo get_theme_mod('link_color') ?>;
+    }
+  </style>
+<?php }
+add_action('wp_head', 'soultrust_customize_color_css');
 
 
 // add_filter( 'enter_title_here', 'custom_enter_title_text' );
