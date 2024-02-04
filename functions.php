@@ -119,6 +119,11 @@ function color_customize_register( $wp_customize ) {
     'section' => 'soultrust_colors',
     'settings' => 'border_text_color',
   )));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color_control', array(
+    'label' => __('Link Color', 'Soultrust'),
+    'section' => 'soultrust_colors',
+    'settings' => 'link_color',
+  )));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_overlay_color_control', array(
     'label' => __('Header Overlay Color', 'Soultrust'),
     'section' => 'soultrust_colors',
@@ -135,11 +140,6 @@ function color_customize_register( $wp_customize ) {
       'step' => .1,
     ),
   ));
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color_control', array(
-    'label' => __('Link Color', 'Soultrust'),
-    'section' => 'soultrust_colors',
-    'settings' => 'link_color',
-  )));
   $wp_customize->remove_section( 'colors');
 }
 add_action('customize_register', 'color_customize_register');
