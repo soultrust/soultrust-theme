@@ -155,7 +155,10 @@ function soultrust_customize_color_css() { ?>
     body::before {
       border-color: <?php echo get_theme_mod('border_text_color') ?>;
     }
-    body::after {
+    header {
+      border-bottom: 3px solid <?php echo get_theme_mod('border_text_color') ?>;
+    }
+    header::after {
       background-color: <?php echo get_theme_mod('header_overlay_color') ?>;
       opacity: <?php echo get_theme_mod('header_overlay_opacity') ?>;
     }

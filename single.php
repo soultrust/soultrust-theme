@@ -7,7 +7,11 @@ while(have_posts()) {
   <h2><?php the_title(); ?></h2>
   <?php the_content(); ?>
   <div class="post-meta">
+    <span class="post-meta__date">
 <?php
+  echo the_date(get_option('date_format')); ?>
+  </span>
+  <?php
 $taxonomy = 'category';
 
 // Get the term IDs assigned to post.
