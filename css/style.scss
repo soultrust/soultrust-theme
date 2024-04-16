@@ -68,8 +68,7 @@ header {
 }
 
 main {
-  padding-left: 3rem;
-  padding-top: 3rem;
+  padding: 3rem;
 }
 
 .home {
@@ -174,7 +173,7 @@ ul {
 .post-meta {
   font-family: "Lato";
   grid-column: 1/-1;
-  padding-bottom: 2rem;
+  clear: both;
 
   &__group {
     display: inline-flex;
@@ -290,6 +289,11 @@ figure {
   .alignleft {
     margin-top: 0;
   }
+}
+
+.site {
+  overflow: hidden;
+  padding-bottom: 1rem;
 }
 
 .site,
