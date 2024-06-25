@@ -181,25 +181,6 @@ function myplugin_settings() {
 }
  // Add to the admin_init hook of your theme functions.php file 
 add_action( 'init', 'myplugin_settings' );
-// add_filter( 'enter_title_here', 'custom_enter_title_text' );
-
-// function custom_enter_title_text( $input ) {
-//   if ( 'recipe' === get_post_type() ) {
-//       return __( 'Add recipe title', 'wp-rig' );
-//   }
-//   return $input;
-// }
-
-
-// function change_columns( $cols ) {
-//   $cols = array(
-//     'title'      => 'Recipe Title'
-//   );
-//   return $cols;
-// }
-
-// add_action("manage_site_posts_custom_column", "custom_columns", 10, 2);
-// add_filter("manage_recipe_posts_columns", "change_columns");
 
 /**
  * Adds custom classes to indicate whether a sidebar is present to the array of body classes.
@@ -224,13 +205,12 @@ add_action( 'init', 'myplugin_settings' );
 //     return $classes;
 // }
 
-// add_action('admin_enqueue_scripts', 'load_admin_style');
 
-// function load_admin_style()
-// {
-//     wp_enqueue_style('admin_css', get_stylesheet_directory_uri() . '/admin-style.css', false, '1.0.0');
-// }
-
+function load_admin_style()
+{
+  wp_enqueue_style('admin_css', get_stylesheet_directory_uri() . '/admin-style.css', false, '1.0.0');
+}
+add_action('admin_enqueue_scripts', 'load_admin_style');
 
 // Redirect subscriber-level members to home page.
 // (demo account is a subcriber)
@@ -277,6 +257,10 @@ add_action( 'init', 'myplugin_settings' );
 //   return get_bloginfo('name');
 // }
 
+function clearFloat($atts, $content = null) {
+        extract(shortcode_atts(array( "id" => '' ), $atts));
+        return '<div class="clear">&nbsp;</div>';
+}
+add_shortcode('clear', 'clearFloat');
 
-
-
+add_editor_style( array( get_stylesheet_directory_uri() . '/editor-style.css' ) );
