@@ -118,7 +118,7 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   grid-column: 1/-1;
 
   .categories &,
@@ -180,18 +180,19 @@ ul {
   &__group {
     display: inline-flex;
   }
-
   &__key {
     font-weight: 700;
     margin-right: 0.3rem;
   }
-
   &__categories {
     margin-right: 0.6rem;
   }
-
   &__date {
     margin-right: 1rem;
+  }
+  & + h2 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -211,11 +212,12 @@ iframe {
   h3 {
     margin-bottom: 1rem;
   }
+}
 
-  p + h3,
-  h2 + h3 {
-    margin-top: 2rem;
-  }
+p + h2,
+p + h3,
+h2 + h3 {
+  margin-top: 3rem;
 }
 
 code {
@@ -346,4 +348,11 @@ figure {
   img {
     height: 100% !important;
   }
+}
+
+.clear {
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
 }
