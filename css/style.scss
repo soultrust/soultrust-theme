@@ -356,3 +356,22 @@ figure {
   clear: both;
   height: 0;
 }
+
+.width-small {
+  max-width: 28%;
+}
+
+.width-medium {
+  max-width: 40%;
+}
+
+.wp-block-video video {
+  border: $border-width solid;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 1rem;
+}
