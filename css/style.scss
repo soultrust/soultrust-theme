@@ -357,12 +357,36 @@ figure {
   height: 0;
 }
 
+.width-xsmall {
+  max-width: 28% !important;
+
+  img {
+    width: 100% !important;
+  }
+}
+
 .width-small {
-  max-width: 28%;
+  max-width: 35% !important;
+
+  img {
+    width: 100% !important;
+  }
 }
 
 .width-medium {
-  max-width: 40%;
+  max-width: 45% !important;
+
+  img {
+    width: 100% !important;
+  }
+}
+
+.width-large {
+  max-width: 60% !important;
+
+  img {
+    width: 100% !important;
+  }
 }
 
 .wp-block-video video {
